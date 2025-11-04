@@ -4,308 +4,773 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>For Downloading Tool — Premium Download Portal</title>
-  <meta name="description" content="Premium download page for For Downloading Application Tool. Clear install guidance, screenshots, versions, and documentation." />
+  <meta name="description" content="Premium download page for For Downloading Application Tool with Tailwind-style hero, GSAP animations, GitHub release info, and Buy Me a Coffee integration." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     :root{
-      --yellow-500: #FFD54A;
-      --yellow-600: #FFCA28;
-      --red-600: #E53935;
-      --black: #0B0B0D;
-      --white: #FFFFFF;
-      --cool-100: #F6F8FA;
-      --cool-200: #EAF0F6;
-      --muted: #6B7280;
-      --card-shadow: 0 8px 28px rgba(11,11,13,0.08);
-      --radius: 12px;
-      --max-width: 1100px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --yellow-500:#FFD54A;
+      --yellow-600:#FFCA28;
+      --red-600:#E53935;
+      --black:#0B0B0D;
+      --muted:#6B7280;
     }
 
-    *{box-sizing:border-box}
     body{
-      margin:0;
-      background: linear-gradient(180deg, var(--cool-100), var(--white));
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#FBFDFF,#FFF);
       color:var(--black);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+      overflow-x:hidden;
     }
 
-    .container{max-width:var(--max-width);margin:32px auto;padding:24px;}
-
-    /* Navbar */
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      background:linear-gradient(90deg,var(--white), #FFF9E6);
-      padding:14px 20px;border-radius:14px;box-shadow:var(--card-shadow);
+    .brand-logo{
+      width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--yellow-600),#FFE082);
+      display:inline-flex;align-items:center;justify-content:center;font-weight:900;
+      box-shadow:0 10px 30px rgba(11,11,13,0.08);color:var(--black);font-size:16px;
     }
-    .brand{display:flex;gap:14px;align-items:center;text-decoration:none;color:var(--black)}
-    .logo{
-      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--yellow-600), #FFE082);
-      box-shadow:0 6px 18px rgba(230,143,0,0.12);display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:var(--black)
+
+    .btn-primary{background:var(--black);color:#fff}
+    .btn-accent{background:linear-gradient(90deg,var(--yellow-600),#FFDD67);color:var(--black);font-weight:800}
+
+    .mock-shadow{filter:drop-shadow(0 14px 30px rgba(11,11,13,0.12))}
+    .hero-image{object-fit:cover;object-position:top}
+    .container-max{max-width:1200px;margin:28px auto;padding:0 20px}
+
+    /* Visual polish for release card */
+    .release-card { border-radius:12px; padding:14px; background:linear-gradient(180deg,#fff,#FFF9E6); box-shadow:0 8px 30px rgba(11,11,13,0.06); }
+
+    /* screenshot hover */
+    .shot:hover { transform: translateY(-8px) scale(1.03); box-shadow:0 18px 40px rgba(11,11,13,0.12); }
+
+    /* ensure BMC widget doesn't cover essential buttons on narrow screens */
+    @media (max-width:640px) {
+      .bmc-button { right: 8px !important; }
     }
-    .nav-links{display:flex;gap:18px;align-items:center}
-    .nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px}
-    .nav a.cta{background:var(--black);color:var(--white);padding:10px 14px}
-    .nav a:hover{color:var(--black);background:rgba(0,0,0,0.03)}
+    /* Premium framed box style (converted from SASS to plain CSS) */
+.howto-box {
+  --borderradius: 14px;
+  --bgsize: 0.38rem;
+  padding: 2rem;
+  border: 1px solid rgba(11,11,13,0.06);
+  position: relative;
+  background: #ffffff;
+  border-radius: var(--borderradius);
+  transform: translateY(-2px);
+  z-index: 2;
+  transition: transform .18s ease, box-shadow .18s ease;
+  overflow: visible;
+}
 
-    /* Hero */
-    .hero{
-      display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;align-items:center;
-    }
-    .hero-card{
-      background:linear-gradient(180deg,var(--white), #FFFBF0);padding:28px;border-radius:16px;box-shadow:var(--card-shadow)
-    }
-    .eyebrow{display:inline-block;background:var(--yellow-500);color:var(--black);padding:6px 10px;border-radius:999px;font-weight:700;margin-bottom:12px}
-    .title{font-size:28px;font-weight:800;margin:6px 0 12px}
-    .subtitle{color:var(--muted);margin-bottom:18px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700}
-    .btn-primary{background:var(--black);color:var(--white)}
-    .btn-ghost{background:transparent;color:var(--black);border:2px solid rgba(11,11,13,0.06)}
-    .info-pill{background:rgba(11,11,13,0.04);padding:10px;border-radius:10px;color:var(--muted);font-weight:700}
+.howto-box:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(11,11,13,0.06);
+}
 
-    /* Sidebar preview */
-    .card-preview{background:linear-gradient(180deg, #FFF8E0, #FFF6D4);padding:20px;border-radius:14px;border:1px solid rgba(0,0,0,0.03)}
-    .preview-title{font-weight:800;margin-bottom:6px}
-    .preview-meta{color:var(--muted);font-size:14px;margin-bottom:12px}
-    .download-btn{background:var(--yellow-600);padding:12px;border-radius:10px;font-weight:800;color:var(--black);display:block;text-align:center;text-decoration:none}
+/* decorative frame layers (two behind the box) */
+.howto-box::before,
+.howto-box::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  top: .75rem;
+  left: .75rem;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--borderradius);
+  background-image: linear-gradient(
+    45deg,
+    #fff 33.33%,
+    rgba(0, 0, 0, 0.08) 33.33%,
+    rgba(0, 0, 0, 0.08) 50%,
+    #fff 50%,
+    #fff 83.33%,
+    rgba(0, 0, 0, 0.08) 83.33%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  background-size: var(--bgsize) var(--bgsize);
+  pointer-events: none;
+  transform: translateZ(0);
+}
 
-    /* Grid sections */
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:22px}
-    .card{background:var(--white);padding:20px;border-radius:12px;box-shadow:var(--card-shadow)}
-    h2{margin:0 0 12px;font-size:18px}
-    p{margin:0 0 12px;color:var(--muted)}
+/* base background layer: sits immediately behind the box */
+.howto-box::before {
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  z-index: -1;
+  /* subtle border to separate layers */
+  box-shadow: 0 6px 18px rgba(11,11,13,0.03);
+}
 
-    /* Screenshots */
-    .screens{display:flex;flex-direction:column;gap:12px}
-    .screenshot{border-radius:10px;overflow:hidden;border:1px solid rgba(11,11,13,0.05);background:var(--cool-200)}
-    .shots{display:flex;gap:12px;flex-wrap:wrap}
-    .shot{width:160px;height:280px;background:linear-gradient(180deg,#fff,#F8F9FB);border-radius:10px;box-shadow:0 6px 20px rgba(11,11,13,0.06);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted)}
+/* second decorative patterned layer */
+.howto-box::after {
+  top: .75rem;
+  left: .75rem;
+  opacity: 0.9;
+}
 
-    /* List styles */
-    .key-list{display:grid;gap:10px}
-    .key-item{display:flex;gap:12px;align-items:flex-start}
-    .k-bullet{width:10px;height:10px;background:var(--yellow-600);border-radius:3px;margin-top:6px}
+/* reset list styles inside the box and spacing */
+.howto-box ul {
+  margin: 0;
+  padding-left: 1rem;
+  line-height: 1.45;
+}
 
-    /* Footer */
-    footer{margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(90deg,#FFF, #FFF9E6);display:flex;justify-content:space-between;align-items:center;box-shadow:var(--card-shadow)}
-    .links{display:flex;gap:16px}
+.howto-box li {
+  margin: .45rem 0;
+}
 
-    /* Responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .nav{flex-direction:column;gap:12px;align-items:start}
-      footer{flex-direction:column;gap:12px;align-items:start}
-    }
+/* headings inside the box */
+.howto-box h4,
+.howto-box h5 {
+  margin: 0 0 .6rem;
+  color: #111827; /* neutral strong */
+}
+
+.howto-box p { color: #6B7280; margin: 0 0 .75rem; }
+
+/* responsive tweaks for small screens */
+@media (max-width:720px) {
+  .howto-box { padding: 1.25rem; --bgsize: 0.28rem; }
+}
   </style>
 </head>
 <body>
-  <div class="container">
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-      <a class="brand" href="#">
-        <div class="logo">FD</div>
+  <div class="container-max">
+
+    <!-- NAV -->
+    <header class="flex items-center justify-between py-6">
+      <a href="#" class="flex items-center gap-4">
+        <div class="brand-logo">YT</div>
         <div>
-          <div style="font-weight:800">For Downloading</div>
-          <div style="font-size:13px;color:var(--muted)">Application Tool Portal</div>
+          <div class="font-extrabold text-lg">You Tube Video Downloader Pro</div>
+          <div class="text-sm text-gray-500">Secure Download Portal</div>
         </div>
       </a>
 
-      <div class="nav-links" role="menu">
-        <a href="#features">Features</a>
-        <a href="#how-to-use">How To Use</a>
-        <a href="#other-tools">Other Tools</a>
-        <a class="cta" href="#download">Download</a>
-      </div>
-    </nav>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#features" class="text-gray-600 font-semibold hover:text-black">Features</a>
+                <a href="#other-tools" class="text-gray-600 font-semibold hover:text-black">Other Tools</a>
+        <a href="https://github.com/mishra9759harshit/YouTubeDownloaderPro/releases/tag/Professional_edition" class="inline-flex items-center px-4 py-2 rounded-lg btn-primary font-semibold hover:opacity-95">Download</a>
+      </nav>
+    </header>
 
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-card">
-        <div class="eyebrow">Stable Release</div>
-        <h1 id="hero-heading" class="title">For Downloading Application Tool</h1>
-        <p class="subtitle">A premium, secure, and simple downloader for curated applications with version control, staged feedback, and guided installation.</p>
-
-        <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
-          <div class="info-pill">Current Version <strong style="margin-left:8px">v2.4.1</strong></div>
-          <div class="info-pill">SHA256 Verified</div>
-        </div>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" id="download" href="#" aria-label="Download latest">Download Latest</a>
-          <a class="btn btn-ghost" href="#how-to-use">Installation Guide</a>
-          <a class="btn" style="background:var(--red-600);color:var(--white)" href="#support">Report Issue</a>
-        </div>
-
-        <div style="margin-top:18px;color:var(--muted);font-size:14px">
-          <strong>Note</strong>: We sign each release and provide checksums so you can validate downloads before running installers.
-        </div>
-      </div>
-
-      <aside class="card-preview" aria-labelledby="preview-title">
-        <div id="preview-title" class="preview-title">Download Snapshot</div>
-        <div class="preview-meta">File size 54 MB · Windows macOS Linux</div>
-        <div style="display:flex;gap:10px;margin-bottom:12px">
-          <div style="flex:1">
-            <div style="font-weight:700">v2.4.1</div>
-            <div style="font-size:13px;color:var(--muted)">Stable · Tested</div>
-          </div>
-          <div style="text-align:right">
-            <div style="font-weight:700">Signed</div>
-            <div style="font-size:13px;color:var(--muted)">SHA256</div>
-          </div>
-        </div>
-
-        <a class="download-btn" href="#">Download v2.4.1</a>
-        <div style="margin-top:12px;font-size:13px;color:var(--muted)">Also available: beta channel · enterprise builds</div>
-      </aside>
-    </section>
-
-    <hr style="border:none;height:1px;background:rgba(11,11,13,0.04);margin:26px 0;border-radius:2px" />
-
-    <section class="grid">
-      <main>
-        <div class="card" id="features">
-          <h2>Application Info</h2>
-          <p><strong>For Downloading</strong> is a focused download manager designed for safe distribution of trusted applications. It prioritizes signature verification, user guidance, and minimal surface for accidental installs.</p>
-
-          <div style="margin-top:12px" class="key-list">
-            <div class="key-item"><div class="k-bullet"></div><div><strong>Platforms</strong> — Windows, macOS, Linux</div></div>
-            <div class="key-item"><div class="k-bullet"></div><div><strong>Security</strong> — Signed installers; SHA256 checksums; optional offline verification</div></div>
-            <div class="key-item"><div class="k-bullet"></div><div><strong>Distribution</strong> — Stable, Beta, Enterprise channels</div></div>
-            <div class="key-item"><div class="k-bullet"></div><div><strong>Licensing</strong> — Proprietary license with redistribution terms</div></div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:18px" id="versions">
-          <h2>Version and Changelog</h2>
-          <p><strong>v2.4.1</strong> · Released 2025-10-21 · Critical installer UX fixes and Windows signature alignment.</p>
-          <ul style="color:var(--muted)">
-            <li>Fixed transient installer dialog that showed ambiguous prompts</li>
-            <li>Improved checksum display and copy actions</li>
-            <li>Optimized download resume and parallel chunking</li>
-          </ul>
-
-          <p style="margin-top:10px"><strong>Previous</strong>: v2.4.0 · v2.3.5 · v2.3.0</p>
-        </div>
-
-        <div class="card" style="margin-top:18px" id="screenshots">
-          <h2>Screenshots</h2>
-          <div class="screens">
-            <div class="shots" aria-hidden="true">
-              <div class="shot">Main Dashboard</div>
-              <div class="shot">Download Queue</div>
-              <div class="shot">Installer Guidance</div>
-              <div class="shot">Settings</div>
+    <!-- HERO (Tailwind-style layout) -->
+    <section class="relative px-4 pt-16 mx-auto lg:py-32 md:px-8 xl:px-20 sm:max-w-xl md:max-w-full">
+      <div class="max-w-xl mx-auto lg:max-w-screen-xl">
+        <div class="mb-16 lg:max-w-lg lg:mb-0">
+          <div class="max-w-xl mb-6">
+            <div>
+              <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider uppercase rounded-full" style="background:linear-gradient(90deg,var(--yellow-500),var(--yellow-600));color:var(--black)">
+                Stable Release
+              </p>
             </div>
 
-            <p style="margin-top:12px;color:var(--muted)">High-resolution images and animated previews are available in the docs for marketing and user training.</p>
+            <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+              For Downloading Tool<br class="hidden md:block" />
+              Secure distribution, verified installs
+              <span class="inline-block text-accent" style="color:var(--red-600)">made simple</span>
+            </h2>
+
+            <p class="text-base text-gray-700 md:text-lg">
+              A premium download manager built to deliver signed installers, clear verification, and safe installer guidance across Windows, macOS, and Linux.
+            </p>
+          </div>
+
+          <div class="flex items-center">
+            <a id="heroDownload" href="https://github.com/mishra9759harshit/YouTubeDownloaderPro/releases/tag/Professional_edition" class="inline-flex items-center justify-center h-12 px-6 mr-6 text-sm font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn-primary focus:outline-none">
+              Get started
+            </a>
+
+            <a href="#how-to-use" class="inline-flex items-center font-semibold transition-colors duration-200" style="color:var(--red-600)">Learn more</a>
           </div>
         </div>
+      </div>
 
-        <div class="card" style="margin-top:18px" id="purpose">
-          <h2>Purpose</h2>
-          <p><strong>Why this tool exists</strong> — to provide a trusted, auditable path for users to download approved applications without confusing or unsafe prompts. The project focuses on verification, clear guidance, and graceful failure states for novice and power users.</p>
+      <!-- Hero preview image / mockup -->
+      <div class="flex justify-center h-full overflow-hidden lg:w-2/3 xl:w-1/2 lg:absolute lg:justify-start lg:bottom-0 lg:right-0 lg:items-end">
+        <img id="heroImg" src="https://kitwind.io/assets/kometa/full-browser.png"
+             class="hero-image object-cover object-top w-full h-64 max-w-xl -mb-16 rounded-2xl shadow-2xl lg:ml-64 xl:ml-8 lg:-mb-24 xl:-mb-28 lg:h-auto lg:max-w-screen-md mock-shadow"
+             alt="App preview" />
+      </div>
+    </section>
 
-          <h2 style="margin-top:12px">Intended Audience</h2>
-          <p>Event organizers, enterprise deployers, and technical communities that need a branded, secure download surface with easy verification and reproducible releases.</p>
-        </div>
+    <!-- Main content -->
+    <section class="mt-12 grid gap-8 lg:grid-cols-3">
+      <main class="lg:col-span-2 space-y-6">
+        <article id="features" class="bg-white rounded-xl shadow-lg p-6">
+          <h3 class="text-xl font-bold mb-2">Application Info</h3>
+          <p class="text-gray-600 mb-4"><strong>For Downloading</strong> is a focused download manager designed for trusted distribution. It emphasizes signed releases and local checksum verification.</p>
 
-        <div class="card" style="margin-top:18px" id="how-to-use">
-          <h2>How To Use</h2>
+          <div class="grid gap-3">
+            <div class="flex items-start gap-3">
+              <div class="w-3 h-3 rounded bg-yellow-400 mt-2"></div>
+              <div><strong>Platforms</strong> — Windows, macOS, Linux</div>
+            </div>
 
-          <h3 style="font-size:15px;margin-top:6px">Download and Verify</h3>
-          <ol style="color:var(--muted);margin-top:8px">
-            <li>Choose the correct platform build from the download button.</li>
-            <li>Download the installer file and the matching .sha256 checksum file or copy the shown SHA256 string.</li>
-            <li>Verify the checksum locally before running the installer using your platform tools or our built-in verify utility.</li>
-          </ol>
+            <div class="flex items-start gap-3">
+              <div class="w-3 h-3 rounded bg-yellow-400 mt-2"></div>
+              <div><strong>Security</strong> — Signed installers; SHA256 checksums; offline verification</div>
+            </div>
 
-          <h3 style="font-size:15px;margin-top:12px">Run Installer Safely</h3>
-          <ol style="color:var(--muted);margin-top:8px">
-            <li>Close unrelated apps that may interfere with installation.</li>
-            <li>Run the installer with administrator privileges only if prompted and only when the signature and checksum match.</li>
-            <li>If using Windows, prefer the signed MSI/EXE distribution over unsigned ZIP or script packages.</li>
-          </ol>
+            <div class="flex items-start gap-3">
+              <div class="w-3 h-3 rounded bg-yellow-400 mt-2"></div>
+              <div><strong>Distribution</strong> — Stable, Beta, Enterprise channels</div>
+            </div>
+          </div>
+        </article>
 
-          <h3 style="font-size:15px;margin-top:12px">About the Don't Install Window</h3>
-          <p style="color:var(--muted)">
-            You may see a "Don't Install Window" or a similar warning during or after download. This is usually a protective operating system or browser prompt, not an indication that the tool is malicious. Common causes include mis-signed installers, mismatch with system policies, or the browser's smart screening heuristics.
-          </p>
 
-          <h4 style="font-size:14px;margin-top:8px">Why it appears</h4>
-          <ul style="color:var(--muted)">
-            <li>Installer signature not recognized by the OS because a timestamp or certificate chain is missing.</li>
-            <li>Checksum mismatch from incomplete or corrupted downloads.</li>
-            <li>Browser or OS heuristic flagged the download as uncommon or non-popular.</li>
-            <li>Enterprise or local security policies block new installers by default.</li>
-          </ul>
+<style>
+/* Paper highlighter sketch style */
+:root{
+  --highlight: #FFF29D;       /* cool yellow */
+  --highlight-deep: #FFEB7A;  /* slightly deeper */
+  --ink: #333;
+  --sketch-opacity: 0.95;
+  --sketch-offset: 4px;
+  --sketch-rotate: -2deg;
+  --sketch-blur: 0.6px;
+  font-family: Inter, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial;
+}
 
-          <h4 style="font-size:14px;margin-top:8px">How to prevent false Dont Install prompts</h4>
-          <ul style="color:var(--muted)">
-            <li>Always verify SHA256 checksum before opening any installer file.</li>
-            <li>Use the signed installer packages we provide and validate the certificate chain in your OS.</li>
-            <li>Download from official domains and avoid mirror sources unless authorized.</li>
-            <li>If an enterprise policy blocks installers, consult your IT admin to whitelist the signed artifact.</li>
-            <li>When a prompt appears, read it fully: if the checksum and signature match our published values, proceed; otherwise abort and contact support.</li>
-          </ul>
+.mark {
+  position: relative;
+  display: inline-block;
+  color: var(--ink);
+  line-height: 1.25;
+  padding: 0 .18rem;
+  border-radius: 3px;
+  z-index: 0;
+}
 
-          <h4 style="font-size:14px;margin-top:8px">If the prompt persists</h4>
-          <p style="color:var(--muted)">
-            Capture the exact prompt text and installer checksum, then open a support ticket. Do not override security dialogs unless you have validated the file and trust the source.
-          </p>
-        </div>
+/* layered marker look */
+.mark::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--highlight) 0%, var(--highlight-deep) 100%);
+  transform: rotate(var(--sketch-rotate));
+  transform-origin: left center;
+  filter: blur(var(--sketch-blur));
+  opacity: var(--sketch-opacity);
+  z-index: -2;
+  border-radius: 3px;
+  margin-left: calc(-1 * var(--sketch-offset));
+  margin-right: calc(-1 * var(--sketch-offset));
+}
+
+/* subtle hand-drawn outline (sketch) */
+.mark::after{
+  content: "";
+  position: absolute;
+  left: -6px;
+  right: -6px;
+  top: -2px;
+  bottom: -2px;
+  border-radius: 4px;
+  z-index: -1;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(0,0,0,0.02) 0 1px,
+      transparent 1px 6px);
+  mix-blend-mode: multiply;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Optional heavier highlight (use .mark--strong) */
+.mark--strong::before{
+  background: linear-gradient(90deg, #FFF07A, #FFE04C);
+  opacity: 1;
+  filter: blur(0.3px);
+}
+
+/* Make headings slightly more airy so highlight stands out */
+.pro-article h2, .pro-article h3, .pro-article h4 {
+  line-height: 1.35;
+}
+
+/* Example small inline 'pen' slant on mobile fix */
+@media (max-width:720px){
+  .mark::before { transform: rotate(-1deg); margin-left:-4px; margin-right:-4px; }
+}
+</style>
+
+<!-- Usage: wrap words or phrases you want highlighted with <span class="mark"> -->
+<article class="pro-article" aria-labelledby="ytpro-title">
+  <header style="margin-bottom:18px">
+    <h1 id="ytpro-title" style="font-size:28px; margin:0 0 8px; font-weight:900; color:#0B0B0D">
+      YouTube Downloader Pro
+    </h1>
+    <p style="margin:0;color:#6B7280;font-size:14px">
+      <span class="mark">Free, open-source</span>, high-quality YouTube downloads for study, offline access, and sharing.
+    </p>
+  </header>
+
+  <section style="background:#FFF; border-radius:12px; padding:20px; border:1px solid rgba(11,11,13,0.06); box-shadow:0 10px 30px rgba(11,11,13,0.06)">
+    <h2 style="font-size:18px;margin:0 0 10px;color:#0B0B0D">What is YouTube Downloader Pro?</h2>
+    <p style="color:#374151;line-height:1.6;margin:0 0 14px">
+      <span class="mark mark--strong">YouTube Downloader Pro</span> is a <span class="mark">free and open-source</span> tool designed to help users download YouTube videos in <span class="mark">high quality</span> without the typical limitations of low resolution and device restrictions.
+    </p>
+
+    <h2 style="font-size:18px;margin:12px 0 8px;color:#0B0B0D">Purpose</h2>
+    <p style="color:#374151;line-height:1.6;margin:0 0 12px">
+      The tool began as a personal solution. When downloading videos for study, I was limited to low-resolution files and single-device use. Videos could not be reliably shared or preserved across devices, and on some PCs downloads would disappear unexpectedly.
+    </p>
+
+    <p style="color:#374151;line-height:1.6;margin:0 0 12px">
+      To solve these problems I created this project and now distribute it freely for people who:
+    </p>
+    <ul style="margin:0 0 14px 1.15rem;color:#374151;line-height:1.6">
+      <li><span class="mark">Cannot afford YouTube Premium</span></li>
+      <li><span class="mark">Live in remote areas</span> with unreliable network connections</li>
+    </ul>
+
+    <h2 style="font-size:18px;margin:12px 0 8px;color:#0B0B0D">Key Features</h2>
+    <ul style="margin:0 0 14px 1.15rem;color:#374151;line-height:1.6">
+      <li><span class="mark">High-quality</span> video and audio downloads</li>
+      <li>Share downloads across <span class="mark">multiple devices</span></li>
+      <li><span class="mark">No data collection</span></li>
+      <li>No targeted third-party advertisements</li>
+      <li><span class="mark">Fully free</span> and open to use</li>
+      <li>Non-profit; developed to serve community needs</li>
+    </ul>
+
+    <h2 style="font-size:18px;margin:12px 0 8px;color:#0B0B0D">Support the Project</h2>
+    <p style="margin:0 0 16px;color:#374151;line-height:1.6">
+      If you find this project useful and want to support ongoing work, consider buying a coffee:
+    </p>
+    <p style="margin:0 0 6px">
+      <a href="https://buymeacoffee.com/bitrolabs" style="display:inline-block;background:linear-gradient(90deg,#FFB86B,#FF813F);color:#111;font-weight:800;padding:10px 14px;border-radius:10px;text-decoration:none;box-shadow:0 10px 30px rgba(255,129,63,0.12)">
+        ☕ <span class="mark">Buy Me a Coffee</span>
+      </a>
+    </p>
+
+    <hr style="border:none;height:1px;background:rgba(11,11,13,0.04);margin:18px 0;border-radius:2px" />
+
+    <h2 style="font-size:16px;margin:0 0 8px;color:#0B0B0D">Copyright</h2>
+    <p style="color:#6B7280;margin:0 0 6px;line-height:1.5">
+      © YouTube Downloader Pro. This project is <span class="mark">free and open-source</span>. Check the repository for license details and contribution guidelines.
+    </p>
+  </section>
+</article>
+
+
+
+       <article id="screenshots" class="screens-section" aria-labelledby="screens-title">
+  <div class="screens-head">
+    <h3 id="screens-title">Screenshots</h3>
+    <div id="screensHint" class="screens-hint">Hover to preview • Click to enlarge</div>
+  </div>
+
+  <div id="shotsGrid" class="shots-grid" role="list">
+    <img class="shot" role="listitem" src="screenshot/1.png" alt="Main Dashboard" data-caption="Main Dashboard" loading="lazy" tabindex="0">
+    <img class="shot" role="listitem" src="screenshot/2.png" alt="Download Queue" data-caption="Download Queue" loading="lazy" tabindex="0">
+    <img class="shot" role="listitem" src="screenshot/3.png" alt="Installer Guidance" data-caption="Installer Guidance" loading="lazy" tabindex="0">
+    <img class="shot" role="listitem" src="screenshot/4.png" alt="Settings" data-caption="Settings" loading="lazy" tabindex="0">
+    <img class="shot" role="listitem" src="screenshot/5.png" alt="More Screens" data-caption="More Screens" loading="lazy" tabindex="0">
+  </div>
+
+  <p class="screens-note">For high-res assets and animated previews see the documentation or marketing folder.</p>
+</article>
+
+<style>
+/* Container */
+.screens-section { background:#fff; border-radius:12px; padding:20px; border:1px solid rgba(11,11,13,0.06); box-shadow:0 10px 30px rgba(11,11,13,0.06); }
+
+/* Header */
+.screens-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; }
+.screens-head h3 { margin:0; font-size:1.125rem; font-weight:800; color:#0B0B0D; }
+.screens-hint { color:#6B7280; font-size:0.875rem; }
+
+/* Responsive grid: 1–5 columns */
+.shots-grid {
+  display:grid;
+  grid-template-columns: repeat(5, minmax(0,1fr));
+  gap:14px;
+  align-items:stretch;
+}
+
+/* Responsive breakpoints */
+@media (max-width:1200px) { .shots-grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+@media (max-width:1000px) { .shots-grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (max-width:720px)  { .shots-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width:440px)  { .shots-grid { grid-template-columns: 1fr; } }
+
+/* Individual shot styling */
+.shot {
+  width:100%;
+  aspect-ratio: 3/5; /* keeps the 36x56 feel but responsive */
+  object-fit: cover;
+  border-radius:10px;
+  display:block;
+  overflow:hidden;
+  background:linear-gradient(180deg,#fff,#F8F9FB);
+  box-shadow:0 8px 28px rgba(11,11,13,0.06);
+  border:1px solid rgba(11,11,13,0.04);
+  transform: translateY(12px);
+  opacity: 0;
+  cursor: pointer;
+  transition: transform .18s cubic-bezier(.2,.9,.2,1), box-shadow .18s ease, scale .12s ease;
+  position:relative;
+  outline: none;
+}
+
+/* overlay caption on hover */
+.shot::after{
+  content: attr(data-caption);
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  padding: 6px 8px;
+  background: linear-gradient(180deg, rgba(11,11,13,0.05), rgba(11,11,13,0.18));
+  color: #fff;
+  font-weight:600;
+  font-size:0.85rem;
+  border-radius:8px;
+  opacity:0;
+  transform: translateY(6px);
+  transition: opacity .18s ease, transform .18s ease;
+  pointer-events: none;
+  text-shadow: 0 2px 8px rgba(11,11,13,0.45);
+}
+
+/* hover/focus interactions */
+.shot:hover,
+.shot:focus {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 50px rgba(11,11,13,0.12);
+}
+.shot:hover::after,
+.shot:focus::after {
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* note text */
+.screens-note { margin-top:12px; color:#6B7280; font-size:0.875rem; }
+
+/* Lightbox modal (dynamically created) */
+.lb-overlay {
+  position:fixed; inset:0; background:rgba(11,11,13,0.8); display:flex; align-items:center; justify-content:center; z-index:2200;
+}
+.lb-card {
+  max-width:92vw; max-height:92vh; border-radius:10px; overflow:hidden; background:#111; display:flex; flex-direction:column; align-items:stretch;
+  box-shadow:0 30px 90px rgba(0,0,0,0.6);
+}
+.lb-img { width:100%; height:calc(92vh - 96px); object-fit:contain; background:#0f1720; }
+.lb-meta { padding:12px 16px; background:linear-gradient(180deg,#08080a,#0b0b0d); color:#eee; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.lb-caption { font-weight:700; font-size:0.95rem; color:#fff; }
+.lb-close { background:transparent; border:0; color:#fff; font-size:1.05rem; padding:8px 10px; cursor:pointer; }
+
+/* Accessibility focus ring */
+.shot:focus { box-shadow: 0 10px 30px rgba(11,11,13,0.14), 0 0 0 3px rgba(255,202,40,0.14); }
+.lb-close:focus { outline: 2px solid #FFD54A; outline-offset:2px; }
+
+/* Reduced motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  .shot, .shot::after { transition: none; }
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+  // GSAP stagger reveal on scroll
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('.shot').forEach((el, i) => {
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      delay: i * 0.06,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+  });
+
+  // Lightbox: click or Enter to open, Escape/overlay to close
+  function createLightbox(src, caption) {
+    const overlay = document.createElement('div');
+    overlay.className = 'lb-overlay';
+    overlay.tabIndex = -1;
+
+    const card = document.createElement('div');
+    card.className = 'lb-card';
+    card.role = 'dialog';
+    card.ariaModal = 'true';
+
+    const img = document.createElement('img');
+    img.className = 'lb-img';
+    img.src = src;
+    img.alt = caption || '';
+
+    const meta = document.createElement('div');
+    meta.className = 'lb-meta';
+
+    const cap = document.createElement('div');
+    cap.className = 'lb-caption';
+    cap.textContent = caption || '';
+
+    const close = document.createElement('button');
+    close.className = 'lb-close';
+    close.innerHTML = 'Close ✕';
+    close.addEventListener('click', () => document.body.removeChild(overlay));
+    close.addEventListener('keydown', (e) => { if (e.key === 'Enter') document.body.removeChild(overlay); });
+
+    meta.appendChild(cap);
+    meta.appendChild(close);
+    card.appendChild(img);
+    card.appendChild(meta);
+    overlay.appendChild(card);
+
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) document.body.removeChild(overlay); });
+    document.addEventListener('keydown', function esc(e){ if (e.key === 'Escape') { if (document.body.contains(overlay)) document.body.removeChild(overlay); document.removeEventListener('keydown', esc); } });
+
+    document.body.appendChild(overlay);
+    close.focus();
+  }
+
+  // attach handlers
+  document.querySelectorAll('.shot').forEach(el => {
+    el.addEventListener('click', () => createLightbox(el.src || el.getAttribute('src'), el.dataset.caption || el.alt));
+    el.addEventListener('keydown', (e) => { if (e.key === 'Enter') createLightbox(el.src || el.getAttribute('src'), el.dataset.caption || el.alt); });
+  });
+</script>
+
       </main>
 
-      <aside>
-        <div class="card" id="quick-info">
-          <h2>Quick Download Links</h2>
-          <p style="color:var(--muted)">Choose your platform</p>
-          <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
-            <a class="download-btn" href="#" style="background:var(--yellow-600);color:var(--black);text-decoration:none">Windows Installer</a>
-            <a class="download-btn" href="#" style="background:linear-gradient(90deg,#FFF,#F2F7FF);color:var(--black);border:1px solid rgba(11,11,13,0.04);text-decoration:none">macOS PKG</a>
-            <a class="download-btn" href="#" style="background:#F8FAFF;color:var(--black);border:1px solid rgba(11,11,13,0.04);text-decoration:none">Linux Tarball</a>
+      <aside class="space-y-6">
+        <div class="release-card">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-sm text-gray-600">Latest release</div>
+              <div id="releaseName" class="text-lg font-bold mt-1">—</div>
+              <div id="releaseTag" class="text-sm text-gray-500 mt-1">—</div>
+            </div>
+
+            <div class="text-right">
+              <div id="releaseDate" class="text-sm text-gray-500">—</div>
+              <a id="releaseAction" href="#" class="inline-block mt-3 px-3 py-2 rounded bg-gray-900 text-white text-sm">View on GitHub</a>
+            </div>
           </div>
 
-          <div style="margin-top:14px">
-            <h3 style="font-size:14px">Verification Tools</h3>
-            <p style="color:var(--muted);font-size:13px">Built-in verify utility and step-by-step checksums for each release are available in the docs.</p>
-            <a href="#documentation" style="text-decoration:none;color:var(--red-600);font-weight:700">Open Documentation</a>
+          <div id="releaseBody" class="mt-4 text-sm text-gray-600">Release notes will appear here when available.</div>
+
+          <div id="releaseAssets" class="mt-4 flex flex-col gap-2"></div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-6">
+          <h4 class="font-bold mb-2">Quick Downloads</h4>
+          <div class="space-y-3">
+            <a href="#" class="block text-center py-3 rounded-lg btn-accent">Windows Installer</a>
+            <a href="#" class="block text-center py-3 rounded-lg bg-white border border-gray-200">macOS PKG</a>
+            <a href="#" class="block text-center py-3 rounded-lg bg-white border border-gray-200">Linux Tarball</a>
           </div>
+          <p class="mt-4 text-sm text-gray-600">All releases are signed. Checksums and verification tools available in docs.</p>
         </div>
 
-        <div class="card" style="margin-top:18px" id="other-tools">
-          <h2>Other Tools</h2>
-          <p style="color:var(--muted)">Complementary utilities to pair with For Downloading</p>
-          <ul style="color:var(--muted);margin-top:8px">
-            <li><strong>Checksum Verifier</strong> — Standalone CLI to verify SHA256 and signatures</li>
-            <li><strong>Enterprise Bundle Manager</strong> — Deploy signed builds across fleets</li>
-            <li><strong>Audit Reporter</strong> — Generate installation and download audit logs</li>
-          </ul>
-          <a href="#other-tools" style="display:inline-block;margin-top:10px;text-decoration:none;color:var(--black);font-weight:700">Explore All Tools</a>
-        </div>
-
-        <div class="card" style="margin-top:18px" id="support">
-          <h2>Support</h2>
-          <p style="color:var(--muted)">If you encounter issues, include the release version, OS build, checksum, and a screenshot of the prompt.</p>
-          <a class="btn" style="background:var(--black);color:var(--white);text-decoration:none;margin-top:8px;display:inline-block" href="mailto:support@example.com">Contact Support</a>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+          <h4 class="font-bold mb-2">Support</h4>
+          <p class="text-gray-600 mb-4">Include release version, OS build, checksum, and screenshot of prompts when reporting issues.</p>
+          <a href="mailto:support@example.com" class="inline-block px-4 py-2 rounded-lg btn-primary">Contact Support</a>
         </div>
       </aside>
     </section>
 
-    <footer role="contentinfo">
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <div style="font-weight:800">For Downloading</div>
-        <div style="font-size:13px;color:var(--muted)">© 2025 For Downloading Labs · All rights reserved</div>
+    <section id="data-collection-declaration" aria-labelledby="data-collection-title" style="background:#fff;border-radius:12px;padding:20px;border:1px solid rgba(11,11,13,0.06);box-shadow:0 10px 30px rgba(11,11,13,0.06);max-width:900px;"> <h2 id="data-collection-title" style="margin:0 0 8px;font-size:18px;color:#0B0B0D;font-weight:800">Data Collection & Developer Declaration</h2>
+
+<p style="margin:0 0 12px;color:#374151;line-height:1.6"> Developer statement: We do not collect, store, or share any personal data or related user data through YouTube Downloader Pro. The application is designed to operate locally on your device and to respect user privacy by default. </p>
+
+<h3 style="margin:8px 0 6px;font-size:15px;color:#0B0B0D">What we do not collect</h3> <ul style="margin:0 0 12px 1.15rem;color:#374151;line-height:1.6"> <li>No names, email addresses, phone numbers, or contact lists.</li> <li>No device identifiers tied to personal identity (no PII telemetry).</li> <li>No usage telemetry that maps to an identifiable individual.</li> <li>No browsing history, search queries, or external account credentials.</li> </ul>
+
+<h3 style="margin:8px 0 6px;font-size:15px;color:#0B0B0D">What the app may do (local-only)</h3> <ul style="margin:0 0 12px 1.15rem;color:#374151;line-height:1.6"> <li>Store downloaded files and user-chosen settings locally on your device to enable offline use.</li> <li>Cache temporary files required for download/resume functionality; these remain on your device unless you delete them.</li> <li>Optionally write user-provided metadata (title, tags) into downloaded media files when you choose to embed metadata.</li> </ul>
+
+<h3 style="margin:8px 0 6px;font-size:15px;color:#0B0B0D">Optional features and explicit consent</h3> <p style="margin:0 0 12px;color:#374151;line-height:1.6"> Any feature that could transmit data off-device (for example, optional crash reports, cloud sync, or anonymous usage metrics) will be explicitly labeled, disabled by default, and require clear, opt-in consent from the user before activation. </p>
+
+<h3 style="margin:8px 0 6px;font-size:15px;color:#0B0B0D">Third-party services</h3> <p style="margin:0 0 12px;color:#374151;line-height:1.6"> The application does not integrate third-party analytics or advertising SDKs by default. If third-party services are added in future builds, they will be documented in release notes and disabled unless you opt in. </p>
+
+<h3 style="margin:8px 0 6px;font-size:15px;color:#0B0B0D">Security and retention</h3> <p style="margin:0 0 12px;color:#374151;line-height:1.6"> Local files and caches are stored according to the platform’s standard file locations. The app does not transmit stored files or caches to the developer. You may delete downloaded files and caches at any time using the app’s settings or your file manager. </p>
+
+<h3 style="margin:8px 0 6px;font-size:15px;color:#0B0B0D">Contact and transparency</h3> <p style="margin:0 0 12px;color:#374151;line-height:1.6"> For transparency or verification requests, contact the developer with details of your query. Release notes and source code are published in the project repository so users and auditors can inspect the code and confirm privacy claims. </p>
+
+<p style="margin:0;color:#6B7280;font-size:13px">Declared by: <strong>Project Developer</strong> — <em>BitRo Labs</em>. Last updated: <strong>2025</strong>.</p> </section>
+    <footer class="mt-12 py-6 flex items-center justify-between">
+      <div>
+        <div class="font-bold">For Downloading</div>
+        <div class="text-sm text-gray-500">© 2025 For Downloading Labs · All rights reserved</div>
       </div>
 
-      <div class="links">
-        <a href="#documentation" style="text-decoration:none;color:var(--muted)">Documentation</a>
-        <a href="#privacy" style="text-decoration:none;color:var(--muted)">Privacy Policy</a>
-        <a href="#terms" style="text-decoration:none;color:var(--muted)">Terms of Use</a>
+      <div class="flex gap-6 items-center">
+        <a href="#documentation" class="text-gray-600 hover:text-black">Documentation</a>
+        <a href="#privacy" class="text-gray-600 hover:text-black">Privacy Policy</a>
+        <a href="#terms" class="text-gray-600 hover:text-black">Terms of Use</a>
       </div>
     </footer>
   </div>
+
+
+  <!-- Buy Me a Coffee widget (corrected attributes) -->
+  <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+          data-id="bitrolabs"
+          data-description="Support me on Buy me a coffee!"
+          data-message="If You Find this Helpful Support me Here"
+          data-color="#FF813F"
+          data-position="Right"
+          data-x_margin="18"
+          data-y_margin="18"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Simple entrance
+    gsap.from("header", { y: -12, opacity: 0, duration: 0.7, ease: "power3.out" });
+    gsap.from("#heroImg", { y: 28, opacity: 0, duration: 1.0, ease: "power3.out", delay: 0.12 });
+    gsap.from(".max-w-xl.mb-6, .hero-sub, .hero-actions", { y: 12, opacity: 0, duration: 0.7, stagger: 0.08, ease: "power3.out", delay: 0.08 });
+
+    // Shots: stagger reveal + hover micro animations
+    // const shots = gsap.utils.toArray(".shot");
+    // gsap.from(shots, {
+    //   y: 18,
+    //   opacity: 0,
+    //   duration: 0.8,
+    //   stagger: 0.12,
+    //   ease: "power3.out",
+    //   scrollTrigger: {
+    //     trigger: "#screenshots",
+    //     start: "top 85%",
+    //     toggleActions: "play none none reverse"
+    //   }
+    // });
+
+    // // Hover scale effect for shots (non-blocking)
+    // shots.forEach(s => {
+    //   s.addEventListener("mouseenter", () => gsap.to(s, { scale: 1.06, duration: 0.14, ease: "power2.out" }));
+    //   s.addEventListener("mouseleave", () => gsap.to(s, { scale: 1, duration: 0.14, ease: "power2.out" }));
+    //   s.addEventListener("click", () => openLightbox(s));
+    // });
+
+    // Simple lightbox (modal)
+    function openLightbox(el) {
+      const caption = el.getAttribute("data-caption") || "";
+      const overlay = document.createElement("div");
+      overlay.style.position = "fixed";
+      overlay.style.inset = 0;
+      overlay.style.background = "rgba(11,11,13,0.7)";
+      overlay.style.display = "flex";
+      overlay.style.alignItems = "center";
+      overlay.style.justifyContent = "center";
+      overlay.style.zIndex = 2000;
+      overlay.innerHTML = `
+        <div style="max-width:90%;max-height:90%;border-radius:12px;overflow:hidden;background:#fff;padding:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
+          <div style="font-weight:800;margin-bottom:8px">${caption}</div>
+          <div style="width:640px;height:360px;display:flex;align-items:center;justify-content:center;background:#f6f8fb;color:#666">Preview Placeholder</div>
+          <div style="text-align:right;margin-top:8px"><button id="closeLb" style="padding:8px 12px;border-radius:8px;background:#111;color:#fff;border:none;cursor:pointer">Close</button></div>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+      document.getElementById("closeLb").addEventListener("click", () => overlay.remove());
+      overlay.addEventListener("click", (e) => { if (e.target === overlay) overlay.remove(); });
+    }
+
+    // Parallax for hero image on scroll
+    ScrollTrigger.create({
+      trigger: ".relative",
+      start: "top top",
+      end: "bottom top",
+      scrub: 0.6,
+      onUpdate: self => {
+        const t = self.progress;
+        gsap.to("#heroImg", { y: Math.min(-28, -t * 36), duration: 0.2, ease: "none" });
+      }
+    });
+
+    // Soft logo attention when tab returns
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") {
+        gsap.fromTo(".brand-logo", { scale: 1 }, { scale: 1.06, duration: 0.16, yoyo: true, repeat: 1, ease: "power1.inOut" });
+      }
+    });
+
+    // Fetch GitHub release info and show latest release
+    // Repo: mishra9759harshit / YouTubeDownloaderPro
+    (async function fetchGitHubReleases(){
+      const owner = 'mishra9759harshit';
+      const repo = 'YouTubeDownloaderPro';
+      const api = `https://api.github.com/repos/${owner}/${repo}/releases`;
+
+      try {
+        const res = await fetch(api, { headers: { Accept: 'application/vnd.github.v3+json' } });
+        if (!res.ok) {
+          document.getElementById('releaseName').textContent = 'No release data';
+          document.getElementById('releaseBody').textContent = 'Could not fetch release information from GitHub (rate limit or private repo).';
+          console.warn('GitHub API response:', res.status, res.statusText);
+          return;
+        }
+        const releases = await res.json();
+        if (!Array.isArray(releases) || releases.length === 0) {
+          document.getElementById('releaseName').textContent = 'No releases found';
+          document.getElementById('releaseBody').textContent = 'This repository has no published releases.';
+          return;
+        }
+
+        // Find the latest non-draft release (prioritize published, not draft)
+        const latest = releases.find(r => !r.draft) || releases[0];
+
+        const nameEl = document.getElementById('releaseName');
+        const tagEl = document.getElementById('releaseTag');
+        const bodyEl = document.getElementById('releaseBody');
+        const dateEl = document.getElementById('releaseDate');
+        const assetsEl = document.getElementById('releaseAssets');
+        const actionEl = document.getElementById('releaseAction');
+
+        nameEl.textContent = latest.name || latest.tag_name || 'Unnamed release';
+        tagEl.textContent = latest.tag_name ? `Tag: ${latest.tag_name}` : '';
+        dateEl.textContent = latest.published_at ? new Date(latest.published_at).toLocaleString() : '';
+        bodyEl.innerHTML = latest.body ? (latest.body.length > 500 ? (latest.body.substring(0, 500) + '…') : latest.body) : 'No release notes provided.';
+
+        actionEl.href = latest.html_url;
+        actionEl.target = '_blank';
+        actionEl.rel = 'noopener noreferrer';
+
+        // assets
+        assetsEl.innerHTML = '';
+        if (latest.assets && latest.assets.length) {
+          latest.assets.forEach(a => {
+            const aEl = document.createElement('a');
+            aEl.href = a.browser_download_url;
+            aEl.target = '_blank';
+            aEl.rel = 'noopener noreferrer';
+            aEl.className = 'inline-block px-3 py-2 rounded bg-gray-100 text-sm text-gray-800';
+            aEl.style.marginBottom = '6px';
+            aEl.style.textDecoration = 'none';
+            aEl.textContent = `${a.name} (${Math.round(a.size/1024)} KB)`;
+            assetsEl.appendChild(aEl);
+          });
+        } else {
+          assetsEl.innerHTML = '<div class="text-sm text-gray-500">No downloadable assets in this release.</div>';
+        }
+      } catch (err) {
+        console.error('Failed to fetch GitHub releases:', err);
+        document.getElementById('releaseName').textContent = 'Release fetch error';
+        document.getElementById('releaseBody').textContent = 'An error occurred while fetching release info. See console for details.';
+      }
+    })();
+  </script>
 </body>
 </html>
