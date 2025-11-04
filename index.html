@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Downloading Tool — Premium Download Portal</title>
+  <meta name="description" content="Premium download page for For Downloading Application Tool. Clear install guidance, screenshots, versions, and documentation." />
+
+  <style>
+    :root{
+      --yellow-500: #FFD54A;
+      --yellow-600: #FFCA28;
+      --red-600: #E53935;
+      --black: #0B0B0D;
+      --white: #FFFFFF;
+      --cool-100: #F6F8FA;
+      --cool-200: #EAF0F6;
+      --muted: #6B7280;
+      --card-shadow: 0 8px 28px rgba(11,11,13,0.08);
+      --radius: 12px;
+      --max-width: 1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, var(--cool-100), var(--white));
+      color:var(--black);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    .container{max-width:var(--max-width);margin:32px auto;padding:24px;}
+
+    /* Navbar */
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      background:linear-gradient(90deg,var(--white), #FFF9E6);
+      padding:14px 20px;border-radius:14px;box-shadow:var(--card-shadow);
+    }
+    .brand{display:flex;gap:14px;align-items:center;text-decoration:none;color:var(--black)}
+    .logo{
+      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--yellow-600), #FFE082);
+      box-shadow:0 6px 18px rgba(230,143,0,0.12);display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:var(--black)
+    }
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px}
+    .nav a.cta{background:var(--black);color:var(--white);padding:10px 14px}
+    .nav a:hover{color:var(--black);background:rgba(0,0,0,0.03)}
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;align-items:center;
+    }
+    .hero-card{
+      background:linear-gradient(180deg,var(--white), #FFFBF0);padding:28px;border-radius:16px;box-shadow:var(--card-shadow)
+    }
+    .eyebrow{display:inline-block;background:var(--yellow-500);color:var(--black);padding:6px 10px;border-radius:999px;font-weight:700;margin-bottom:12px}
+    .title{font-size:28px;font-weight:800;margin:6px 0 12px}
+    .subtitle{color:var(--muted);margin-bottom:18px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700}
+    .btn-primary{background:var(--black);color:var(--white)}
+    .btn-ghost{background:transparent;color:var(--black);border:2px solid rgba(11,11,13,0.06)}
+    .info-pill{background:rgba(11,11,13,0.04);padding:10px;border-radius:10px;color:var(--muted);font-weight:700}
+
+    /* Sidebar preview */
+    .card-preview{background:linear-gradient(180deg, #FFF8E0, #FFF6D4);padding:20px;border-radius:14px;border:1px solid rgba(0,0,0,0.03)}
+    .preview-title{font-weight:800;margin-bottom:6px}
+    .preview-meta{color:var(--muted);font-size:14px;margin-bottom:12px}
+    .download-btn{background:var(--yellow-600);padding:12px;border-radius:10px;font-weight:800;color:var(--black);display:block;text-align:center;text-decoration:none}
+
+    /* Grid sections */
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:22px}
+    .card{background:var(--white);padding:20px;border-radius:12px;box-shadow:var(--card-shadow)}
+    h2{margin:0 0 12px;font-size:18px}
+    p{margin:0 0 12px;color:var(--muted)}
+
+    /* Screenshots */
+    .screens{display:flex;flex-direction:column;gap:12px}
+    .screenshot{border-radius:10px;overflow:hidden;border:1px solid rgba(11,11,13,0.05);background:var(--cool-200)}
+    .shots{display:flex;gap:12px;flex-wrap:wrap}
+    .shot{width:160px;height:280px;background:linear-gradient(180deg,#fff,#F8F9FB);border-radius:10px;box-shadow:0 6px 20px rgba(11,11,13,0.06);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted)}
+
+    /* List styles */
+    .key-list{display:grid;gap:10px}
+    .key-item{display:flex;gap:12px;align-items:flex-start}
+    .k-bullet{width:10px;height:10px;background:var(--yellow-600);border-radius:3px;margin-top:6px}
+
+    /* Footer */
+    footer{margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(90deg,#FFF, #FFF9E6);display:flex;justify-content:space-between;align-items:center;box-shadow:var(--card-shadow)}
+    .links{display:flex;gap:16px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .nav{flex-direction:column;gap:12px;align-items:start}
+      footer{flex-direction:column;gap:12px;align-items:start}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <a class="brand" href="#">
+        <div class="logo">FD</div>
+        <div>
+          <div style="font-weight:800">For Downloading</div>
+          <div style="font-size:13px;color:var(--muted)">Application Tool Portal</div>
+        </div>
+      </a>
+
+      <div class="nav-links" role="menu">
+        <a href="#features">Features</a>
+        <a href="#how-to-use">How To Use</a>
+        <a href="#other-tools">Other Tools</a>
+        <a class="cta" href="#download">Download</a>
+      </div>
+    </nav>
+
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-card">
+        <div class="eyebrow">Stable Release</div>
+        <h1 id="hero-heading" class="title">For Downloading Application Tool</h1>
+        <p class="subtitle">A premium, secure, and simple downloader for curated applications with version control, staged feedback, and guided installation.</p>
+
+        <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
+          <div class="info-pill">Current Version <strong style="margin-left:8px">v2.4.1</strong></div>
+          <div class="info-pill">SHA256 Verified</div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" id="download" href="#" aria-label="Download latest">Download Latest</a>
+          <a class="btn btn-ghost" href="#how-to-use">Installation Guide</a>
+          <a class="btn" style="background:var(--red-600);color:var(--white)" href="#support">Report Issue</a>
+        </div>
+
+        <div style="margin-top:18px;color:var(--muted);font-size:14px">
+          <strong>Note</strong>: We sign each release and provide checksums so you can validate downloads before running installers.
+        </div>
+      </div>
+
+      <aside class="card-preview" aria-labelledby="preview-title">
+        <div id="preview-title" class="preview-title">Download Snapshot</div>
+        <div class="preview-meta">File size 54 MB · Windows macOS Linux</div>
+        <div style="display:flex;gap:10px;margin-bottom:12px">
+          <div style="flex:1">
+            <div style="font-weight:700">v2.4.1</div>
+            <div style="font-size:13px;color:var(--muted)">Stable · Tested</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:700">Signed</div>
+            <div style="font-size:13px;color:var(--muted)">SHA256</div>
+          </div>
+        </div>
+
+        <a class="download-btn" href="#">Download v2.4.1</a>
+        <div style="margin-top:12px;font-size:13px;color:var(--muted)">Also available: beta channel · enterprise builds</div>
+      </aside>
+    </section>
+
+    <hr style="border:none;height:1px;background:rgba(11,11,13,0.04);margin:26px 0;border-radius:2px" />
+
+    <section class="grid">
+      <main>
+        <div class="card" id="features">
+          <h2>Application Info</h2>
+          <p><strong>For Downloading</strong> is a focused download manager designed for safe distribution of trusted applications. It prioritizes signature verification, user guidance, and minimal surface for accidental installs.</p>
+
+          <div style="margin-top:12px" class="key-list">
+            <div class="key-item"><div class="k-bullet"></div><div><strong>Platforms</strong> — Windows, macOS, Linux</div></div>
+            <div class="key-item"><div class="k-bullet"></div><div><strong>Security</strong> — Signed installers; SHA256 checksums; optional offline verification</div></div>
+            <div class="key-item"><div class="k-bullet"></div><div><strong>Distribution</strong> — Stable, Beta, Enterprise channels</div></div>
+            <div class="key-item"><div class="k-bullet"></div><div><strong>Licensing</strong> — Proprietary license with redistribution terms</div></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px" id="versions">
+          <h2>Version and Changelog</h2>
+          <p><strong>v2.4.1</strong> · Released 2025-10-21 · Critical installer UX fixes and Windows signature alignment.</p>
+          <ul style="color:var(--muted)">
+            <li>Fixed transient installer dialog that showed ambiguous prompts</li>
+            <li>Improved checksum display and copy actions</li>
+            <li>Optimized download resume and parallel chunking</li>
+          </ul>
+
+          <p style="margin-top:10px"><strong>Previous</strong>: v2.4.0 · v2.3.5 · v2.3.0</p>
+        </div>
+
+        <div class="card" style="margin-top:18px" id="screenshots">
+          <h2>Screenshots</h2>
+          <div class="screens">
+            <div class="shots" aria-hidden="true">
+              <div class="shot">Main Dashboard</div>
+              <div class="shot">Download Queue</div>
+              <div class="shot">Installer Guidance</div>
+              <div class="shot">Settings</div>
+            </div>
+
+            <p style="margin-top:12px;color:var(--muted)">High-resolution images and animated previews are available in the docs for marketing and user training.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px" id="purpose">
+          <h2>Purpose</h2>
+          <p><strong>Why this tool exists</strong> — to provide a trusted, auditable path for users to download approved applications without confusing or unsafe prompts. The project focuses on verification, clear guidance, and graceful failure states for novice and power users.</p>
+
+          <h2 style="margin-top:12px">Intended Audience</h2>
+          <p>Event organizers, enterprise deployers, and technical communities that need a branded, secure download surface with easy verification and reproducible releases.</p>
+        </div>
+
+        <div class="card" style="margin-top:18px" id="how-to-use">
+          <h2>How To Use</h2>
+
+          <h3 style="font-size:15px;margin-top:6px">Download and Verify</h3>
+          <ol style="color:var(--muted);margin-top:8px">
+            <li>Choose the correct platform build from the download button.</li>
+            <li>Download the installer file and the matching .sha256 checksum file or copy the shown SHA256 string.</li>
+            <li>Verify the checksum locally before running the installer using your platform tools or our built-in verify utility.</li>
+          </ol>
+
+          <h3 style="font-size:15px;margin-top:12px">Run Installer Safely</h3>
+          <ol style="color:var(--muted);margin-top:8px">
+            <li>Close unrelated apps that may interfere with installation.</li>
+            <li>Run the installer with administrator privileges only if prompted and only when the signature and checksum match.</li>
+            <li>If using Windows, prefer the signed MSI/EXE distribution over unsigned ZIP or script packages.</li>
+          </ol>
+
+          <h3 style="font-size:15px;margin-top:12px">About the Don't Install Window</h3>
+          <p style="color:var(--muted)">
+            You may see a "Don't Install Window" or a similar warning during or after download. This is usually a protective operating system or browser prompt, not an indication that the tool is malicious. Common causes include mis-signed installers, mismatch with system policies, or the browser's smart screening heuristics.
+          </p>
+
+          <h4 style="font-size:14px;margin-top:8px">Why it appears</h4>
+          <ul style="color:var(--muted)">
+            <li>Installer signature not recognized by the OS because a timestamp or certificate chain is missing.</li>
+            <li>Checksum mismatch from incomplete or corrupted downloads.</li>
+            <li>Browser or OS heuristic flagged the download as uncommon or non-popular.</li>
+            <li>Enterprise or local security policies block new installers by default.</li>
+          </ul>
+
+          <h4 style="font-size:14px;margin-top:8px">How to prevent false Dont Install prompts</h4>
+          <ul style="color:var(--muted)">
+            <li>Always verify SHA256 checksum before opening any installer file.</li>
+            <li>Use the signed installer packages we provide and validate the certificate chain in your OS.</li>
+            <li>Download from official domains and avoid mirror sources unless authorized.</li>
+            <li>If an enterprise policy blocks installers, consult your IT admin to whitelist the signed artifact.</li>
+            <li>When a prompt appears, read it fully: if the checksum and signature match our published values, proceed; otherwise abort and contact support.</li>
+          </ul>
+
+          <h4 style="font-size:14px;margin-top:8px">If the prompt persists</h4>
+          <p style="color:var(--muted)">
+            Capture the exact prompt text and installer checksum, then open a support ticket. Do not override security dialogs unless you have validated the file and trust the source.
+          </p>
+        </div>
+      </main>
+
+      <aside>
+        <div class="card" id="quick-info">
+          <h2>Quick Download Links</h2>
+          <p style="color:var(--muted)">Choose your platform</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
+            <a class="download-btn" href="#" style="background:var(--yellow-600);color:var(--black);text-decoration:none">Windows Installer</a>
+            <a class="download-btn" href="#" style="background:linear-gradient(90deg,#FFF,#F2F7FF);color:var(--black);border:1px solid rgba(11,11,13,0.04);text-decoration:none">macOS PKG</a>
+            <a class="download-btn" href="#" style="background:#F8FAFF;color:var(--black);border:1px solid rgba(11,11,13,0.04);text-decoration:none">Linux Tarball</a>
+          </div>
+
+          <div style="margin-top:14px">
+            <h3 style="font-size:14px">Verification Tools</h3>
+            <p style="color:var(--muted);font-size:13px">Built-in verify utility and step-by-step checksums for each release are available in the docs.</p>
+            <a href="#documentation" style="text-decoration:none;color:var(--red-600);font-weight:700">Open Documentation</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px" id="other-tools">
+          <h2>Other Tools</h2>
+          <p style="color:var(--muted)">Complementary utilities to pair with For Downloading</p>
+          <ul style="color:var(--muted);margin-top:8px">
+            <li><strong>Checksum Verifier</strong> — Standalone CLI to verify SHA256 and signatures</li>
+            <li><strong>Enterprise Bundle Manager</strong> — Deploy signed builds across fleets</li>
+            <li><strong>Audit Reporter</strong> — Generate installation and download audit logs</li>
+          </ul>
+          <a href="#other-tools" style="display:inline-block;margin-top:10px;text-decoration:none;color:var(--black);font-weight:700">Explore All Tools</a>
+        </div>
+
+        <div class="card" style="margin-top:18px" id="support">
+          <h2>Support</h2>
+          <p style="color:var(--muted)">If you encounter issues, include the release version, OS build, checksum, and a screenshot of the prompt.</p>
+          <a class="btn" style="background:var(--black);color:var(--white);text-decoration:none;margin-top:8px;display:inline-block" href="mailto:support@example.com">Contact Support</a>
+        </div>
+      </aside>
+    </section>
+
+    <footer role="contentinfo">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-weight:800">For Downloading</div>
+        <div style="font-size:13px;color:var(--muted)">© 2025 For Downloading Labs · All rights reserved</div>
+      </div>
+
+      <div class="links">
+        <a href="#documentation" style="text-decoration:none;color:var(--muted)">Documentation</a>
+        <a href="#privacy" style="text-decoration:none;color:var(--muted)">Privacy Policy</a>
+        <a href="#terms" style="text-decoration:none;color:var(--muted)">Terms of Use</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
