@@ -371,7 +371,98 @@
   .mark::before { transform: rotate(-1deg); margin-left:-4px; margin-right:-4px; }
 }
 </style>
+<!-- =======================
+  CSS STYLES
+======================= -->
+<style>
+.youtube-section {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 80px 20px;
+  font-family: 'Poppins', sans-serif;
+}
 
+.youtube-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #38bdf8;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: 60px;
+}
+
+.video-category {
+  margin-bottom: 80px;
+}
+
+.category-title {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  border-left: 4px solid #38bdf8;
+  padding-left: 10px;
+  color: #f8fafc;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+.video-card {
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+}
+
+.video-card h4 {
+  font-size: 1.1rem;
+  padding: 15px;
+  color: #e0f2fe;
+  text-align: center;
+  background: linear-gradient(90deg, #0ea5e9, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.video-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .category-title {
+    font-size: 1.4rem;
+  }
+}
+</style>
 <!-- Usage: wrap words or phrases you want highlighted with <span class="mark"> -->
 <article class="pro-article" aria-labelledby="ytpro-title">
   <header style="margin-bottom:18px">
@@ -382,6 +473,77 @@
       <span class="mark">Free, open-source</span>, high-quality YouTube downloads for study, offline access, and sharing.
     </p>
   </header>
+
+  <!-- =======================
+  YOUTUBE VIDEOS SECTION
+======================= -->
+<section class="youtube-section" id="videos">
+  <div class="container">
+    <h2 class="section-title">📺 YouTube Video Tutorials</h2>
+    <p class="section-subtitle">Learn more about YouTube Downloader Pro — Watch Introduction and How-to-Use videos in your preferred language.</p>
+
+    <!-- ===== INTRODUCTION SECTION ===== -->
+    <div class="video-category">
+      <h3 class="category-title">Introduction</h3>
+      
+      <div class="video-grid">
+        <!-- English Intro -->
+        <div class="video-card">
+          <h4>Introduction (English) Uploading Soon</h4>
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/XXXXXXXXXXX" 
+              title="YouTube Downloader Pro - Introduction (English)" 
+              frameborder="0" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Hindi Intro -->
+        <div class="video-card">
+          <h4>Introduction (Hindi)</h4>
+          <div class="video-wrapper">
+            <iframe  src="https://www.youtube-nocookie.com/embed/GoVD-Pg4O4A?si=i7oauYf8YOtAr3vB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== HOW TO USE SECTION ===== -->
+    <div class="video-category">
+      <h3 class="category-title">How to Use Uploading Video Soon</h3>
+      
+      <div class="video-grid">
+        <!-- English Tutorial -->
+        <div class="video-card">
+          <h4>How to Use (English)</h4>
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/ZZZZZZZZZZZ" 
+              title="How to Use YouTube Downloader Pro (English)" 
+              frameborder="0" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Hindi Tutorial -->
+        <div class="video-card">
+          <h4>How to Use (Hindi)</h4>
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/WWWWWWWWWWW" 
+              title="YouTube Downloader Pro - How to Use (Hindi)" 
+              frameborder="0" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <section style="background:#FFF; border-radius:12px; padding:20px; border:1px solid rgba(11,11,13,0.06); box-shadow:0 10px 30px rgba(11,11,13,0.06)">
     <h2 style="font-size:18px;margin:0 0 10px;color:#0B0B0D">What is YouTube Downloader Pro?</h2>
